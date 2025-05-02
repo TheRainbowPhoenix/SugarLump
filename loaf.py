@@ -185,9 +185,9 @@ if __name__ == "__main__":
 
     slf = SLFFile.load(args.slf_file)
     # slf_file = "Games/AdventureMode/Datafiles/ElectrospriteAdventure.slf"
-    slf_file = "Data/UIControls.slf"
+    # slf_file = "Data/UIControls.slf"
     # out = "DATAExt/ElectrospriteAdventure"
-    slf = SLFFile.load(slf_file)
+    slf = SLFFile.load(args.slf_file)
     print(f"Found {len(slf.entries)} lumps, extracting IMAGE* only…")
     # for i,e in enumerate(slf.entries):
     #     print(f"  {i:3}: {e.name} @ 0x{e.offset:X} (+{e.size} bytes)")
