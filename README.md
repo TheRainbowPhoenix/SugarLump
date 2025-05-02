@@ -18,6 +18,7 @@ Not hard, but to be done. I'm not interested in the engine as it's proprietary a
 
 - Support `AUTOLOAD00` blocks ?
 - Support `MAPINFO000` to convert maps to Tiled + RPG Maker JSON ?
+- Save editor / convert to JSON (`STARv201LOADINFO`)
 
 Future plans ? Port it to rpg maker, add a SLF file loader and see if the browser like that !
 
