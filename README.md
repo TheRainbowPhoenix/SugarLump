@@ -26,6 +26,9 @@ python gen_tsx.py -i Out/Villa/VillaA -o Out/Villa/VillaA/Tiled
 python merger.py -i "Out/Villa/VillaA" -o "Out/Villa/VillaA/Tiled/VillaA.tmx"
 ```
 
+If you want to rip all maps, then copy the files plus `map_rip.py` and run it like this :
+
+`python map_rip.py -i "Games/AdventureMode/Chapter C/Maps" -o MapsOut`
 
 ## Repack / modding 
 Not hard, but to be done. I'm not interested in the engine as it's proprietary and not documented at all + RPG Maker MV is far supperior to quickly iterate than custom LUA / C++ engine.
