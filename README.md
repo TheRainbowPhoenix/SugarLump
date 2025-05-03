@@ -30,6 +30,8 @@ If you want to rip all maps, then copy the files plus `map_rip.py` and run it li
 
 `python map_rip.py -i "Games/AdventureMode/Chapter C/Maps" -o MapsOut`
 
+Then use [Tiled](https://www.mapeditor.org) to open the tmx files and view the maps
+
 ## Repack / modding 
 Not hard, but to be done. I'm not interested in the engine as it's proprietary and not documented at all + RPG Maker MV is far supperior to quickly iterate than custom LUA / C++ engine.
 
