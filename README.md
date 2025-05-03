@@ -10,6 +10,11 @@ Install [python](https://www.python.org/downloads/), then install Pillow: `pytho
 
 Then put the `loaf.py` file next to the engine and run `python loaf.py -o DATAExt/UI "Games\AdventureMode\Chapter C\Datafiles\UI.slf"` (change to the output path and slf path)
 
+### Map / multi extractor (beta)
+
+To extract the content of a map to the "VillageB" folder :
+
+`python loafed.py "Games/AdventureMode/Chapter C/Maps/Village/VillageB/MapData.slf" "VillageB"` 
 
 ## Repack / modding 
 Not hard, but to be done. I'm not interested in the engine as it's proprietary and not documented at all + RPG Maker MV is far supperior to quickly iterate than custom LUA / C++ engine.
