@@ -25,6 +25,20 @@ def read_lstr(buf: bytes, pos: int):
     s = buf[pos:pos+length].decode("utf-8")
     return s, pos+length
 
+# --- Fixers ---
+
+def normalize_tiles(tiles, width, height):
+    """
+    Convert column-major tiles (x then y) into row-major (y then x).
+    """
+    new_tiles = []
+    for y in range(height):
+        for x in range(width):
+            # original index in column-major = x*height + y
+            original_idx = x * height + y
+            new_tiles.append(tiles[original_idx])
+    return new_tiles
+
 # --- parsers ---
 
 def parse_mapinfo(body: bytes) -> Any:
@@ -36,11 +50,12 @@ def parse_mapinfo(body: bytes) -> Any:
     names = []
     for _ in range(s2):
         name, pos = read_lstr(body, pos)
-        a1, pos   = read_u16(body, pos)
-        a2, pos   = read_u16(body, pos)
-        names.append({"name": name, "a1": a1, "a2": a2})
+        start_id, pos   = read_u16(body, pos)
+        id_count, pos   = read_u16(body, pos)
+        names.append({"name": name, "start_id": start_id, "id_count": id_count})
 
     return {"s1": s1, "count": s2, "s3": s3, "maps": names}
+
 
 def parse_layerdata(body: bytes) -> Any:
     pos = 0
@@ -57,8 +72,8 @@ def parse_layerdata(body: bytes) -> Any:
             props[k] = v
 
         e1, pos = read_u32(body, pos)   # unused in C
-        width, pos  = read_u16(body, pos)
-        height, pos = read_u16(body, pos)
+        width, pos = read_u16(body, pos)
+        height, pos  = read_u16(body, pos)
 
         # tile IDs
         count = width * height
@@ -75,8 +90,9 @@ def parse_layerdata(body: bytes) -> Any:
         out.update({
             "layer": layer_name,
             "props": props,
-            "width": width, "height": height,
-            "tiles": tiles,
+            "width": width,
+            "height": height,
+            "tiles": normalize_tiles(tiles, width, height),
             "collision": cols or None
         })
 
