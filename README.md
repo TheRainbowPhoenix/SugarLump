@@ -16,6 +16,17 @@ To extract the content of a map to the "VillageB" folder :
 
 `python loafed.py "Games/AdventureMode/Chapter C/Maps/Village/VillageB/MapData.slf" "VillageB"` 
 
+To convert to TMX (tiled):
+
+Copy the gen_tsx and merger to the folder, then :
+
+```
+python loafed.py "Games/AdventureMode/Chapter C/Maps/Villa/VillaA/MapData.slf" Out/Villa/VillaA
+python gen_tsx.py -i Out/Villa/VillaA -o Out/Villa/VillaA/Tiled
+python merger.py -i "Out/Villa/VillaA" -o "Out/Villa/VillaA/Tiled/VillaA.tmx"
+```
+
+
 ## Repack / modding 
 Not hard, but to be done. I'm not interested in the engine as it's proprietary and not documented at all + RPG Maker MV is far supperior to quickly iterate than custom LUA / C++ engine.
 
